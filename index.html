@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/blazo.png"
+    />
+
+    <title>NewLaz | Calculator app</title>
+
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="calculator">
+      <header class="calculator-header">
+        <strong class="calculator-title">calc</strong>
+        <aside class="calculator-theme">
+          <label class="calculator-theme-text" for="theme-switch">
+            Theme
+          </label>
+          <div class="calculator-theme-handler">
+            <div class="calculator-theme-counter">
+              <span class="calculator-theme-counter-item">1</span>
+              <span class="calculator-theme-counter-item">2</span>
+              <span class="calculator-theme-counter-item">3</span>
+            </div>
+            <input
+              id="theme-switch"
+              class="calculator-theme-switch"
+              type="range"
+              name="theme-switch"
+              min="1"
+              max="3"
+              step="1"
+              value="1"
+            />
+          </div>
+        </aside>
+      </header>
+      <div class="calculator-display">
+        <h2 class="calculator-display-text" id="calculator-display">0</h2>
+      </div>
+      <div class="calculator-keypad">
+        <button data-number id="7" class="calculator-key">7</button>
+        <button data-number id="8" class="calculator-key">8</button>
+        <button data-number id="9" class="calculator-key">9</button>
+        <button id="del" class="calculator-key calculator-key--del">DEL</button>
+        <button data-number id="4" class="calculator-key">4</button>
+        <button data-number id="5" class="calculator-key">5</button>
+        <button data-number id="6" class="calculator-key">6</button>
+        <button data-operator id="plus" class="calculator-key">&plus;</button>
+        <button data-number id="1" class="calculator-key">1</button>
+        <button data-number id="2" class="calculator-key">2</button>
+        <button data-number id="3" class="calculator-key">3</button>
+        <button data-operator id="minus" class="calculator-key">&minus;</button>
+        <button data-number id="point" class="calculator-key">.</button>
+        <button data-number id="0" class="calculator-key">0</button>
+        <button data-operator id="divide" class="calculator-key">
+          &divide;
+        </button>
+        <button data-operator id="times" class="calculator-key">&times;</button>
+        <button id="clear" class="calculator-key calculator-key--reset">
+          reset
+        </button>
+        <button id="equal" class="calculator-key calculator-key--equal">
+          &#61;
+        </button>
+      </div>
+    </main>
+  </body>
+  <script type="module" src="./assets/js/app.js"></script>
+</html>
