@@ -8,7 +8,7 @@ export function $(selector) {
 }
 
 export function removeComasFromNumber(number) {
-  return number.split(",").join("");
+  return Number(number.split(",").join(""));
 }
 
 export function formatNumber(number) {

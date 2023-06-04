@@ -36,6 +36,9 @@ import { $, removeComasFromNumber, formatNumber } from "./helpers.js";
   function addNumberToDisplay(event) {
     const key = event.target;
 
+    if (!Number.isSafeInteger(removeComasFromNumber(display.textContent)))
+      return;
+
     if (display.textContent === "0" && key.id !== "point") {
       display.textContent = key.id;
       return;
@@ -47,9 +50,10 @@ import { $, removeComasFromNumber, formatNumber } from "./helpers.js";
     }
 
     if (key.id !== "point") {
-      const numberToDisplay = Number(
-        display.textContent.split(",").join("") + key.id
+      const numberToDisplay = removeComasFromNumber(
+        display.textContent + key.id
       );
+
       display.textContent = formatNumber(numberToDisplay);
     }
   }
@@ -83,16 +87,16 @@ import { $, removeComasFromNumber, formatNumber } from "./helpers.js";
     secondNumber = removeComasFromNumber(display.textContent);
 
     if (operator === "+") {
-      result = Number(firstNumber) + Number(secondNumber);
+      result = firstNumber + secondNumber;
     }
     if (operator === "-") {
-      result = Number(firstNumber) - Number(secondNumber);
+      result = firstNumber - secondNumber;
     }
     if (operator === "*") {
-      result = Number(firstNumber) * Number(secondNumber);
+      result = firstNumber * secondNumber;
     }
     if (operator === "/") {
-      result = Number(firstNumber) / Number(secondNumber);
+      result = firstNumber / secondNumber;
     }
 
     display.textContent = formatNumber(result);
@@ -111,8 +115,8 @@ import { $, removeComasFromNumber, formatNumber } from "./helpers.js";
       return;
     }
 
-    const numberToDisplay = Number(
-      removeComasFromNumber(display.textContent.slice(0, -1))
+    const numberToDisplay = removeComasFromNumber(
+      display.textContent.slice(0, -1)
     );
 
     display.textContent = formatNumber(numberToDisplay);
