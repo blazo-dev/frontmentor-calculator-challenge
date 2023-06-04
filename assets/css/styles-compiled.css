@@ -6,6 +6,10 @@
   color: var(--header-text);
 }
 
+html {
+  font-size: 14px;
+}
+
 body {
   display: grid;
   grid-template-columns: 1fr min(600px, 90%) 1fr;
@@ -28,6 +32,10 @@ body {
   grid-column: 2;
   width: 100%;
 }
+.calculator-title {
+  margin-block: 0;
+  font-size: 1em;
+}
 .calculator-header {
   display: flex;
   justify-content: space-between;
@@ -39,7 +47,7 @@ body {
   padding: 2rem;
   background-color: var(--screen-background);
   border-radius: 0.3em;
-  scrollbar-color: red red;
+  scrollbar-color: var(--key-background-equal) var(--screen-background);
   scrollbar-width: thin;
 }
 .calculator-display::-webkit-scrollbar {
@@ -85,10 +93,12 @@ body {
 }
 .calculator-theme-switch {
   overflow: hidden;
-  padding: 0.2em;
+  padding: 0.5em;
   background-color: var(--keypad-background);
   border-radius: 1em;
+  font-size: 1rem;
   appearance: none;
+  -moz-appearance: none;
   -webkit-appearance: none;
 }
 .calculator-theme-switch:focus {
@@ -96,9 +106,10 @@ body {
 }
 .calculator-theme-switch::-webkit-slider-thumb {
   appearance: none;
+  -moz-appearance: none;
   -webkit-appearance: none;
-  width: 0.6em;
-  height: 0.6em;
+  width: 16px;
+  height: 16px;
   background-color: var(--key-background-equal);
   border-radius: 50%;
   border: none;
@@ -106,6 +117,18 @@ body {
   transition: background-color 0.2s ease;
 }
 .calculator-theme-switch::-webkit-slider-thumb:active {
+  background-color: var(--key-background-equal-hover);
+}
+.calculator-theme-switch::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background-color: var(--key-background-equal);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.calculator-theme-switch::-moz-range-thumb:active {
   background-color: var(--key-background-equal-hover);
 }
 .calculator-keypad {
@@ -118,12 +141,13 @@ body {
 }
 .calculator-key {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   width: 100%;
   padding: 0.7rem;
   text-transform: uppercase;
   font-weight: 700;
+  font-size: 1.2em;
   color: var(--text-primary);
   background-color: var(--key-background-number);
   border: none;
